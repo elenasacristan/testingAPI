@@ -3,17 +3,13 @@ import { Link } from "react-router-dom";
 import Drink from "../Drink/Drink.js";
 import "./Results.css";
 
-export default function Results(props) {
+export default function Results({ingredient}) {
   const [drinks, serDrinks] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [ingredientSelected, setIngredientSelected] = useState(props.ingredient);
 
-  console.log(props.ingredient);
 
   useEffect(() => {
-    let drink = 'vodka';
-    // fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredientSelected}`)
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${props.ingredient}`)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
 
       .then((response) => response.json())
       .then((json) => {
@@ -21,7 +17,7 @@ export default function Results(props) {
         setIsLoaded(true);
         console.log(json.drinks);
       });
-  }, [props.ingredient]);
+  }, [ingredient]);
 
   if (!isLoaded) {
     return <div>Loadin...</div>;
