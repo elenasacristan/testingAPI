@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Random from "./Components/Random/Random.js";
+import Categories from "./Components/Categories/Categories.js";
+import NonAlcoholic from "./Components/NonAlcoholic/NonAlcoholic.js"
+import Detail from "./Components/Detail/Detail.js"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+      <Link to="/">Categories</Link><br/>
+      <Link to="/random">Random</Link><br/>
+      <Link to="/nonalcohol">Non-Alcoholic</Link><br/>
+      <br/><br/>
+        <Switch>
+          <Route exact path="/" component={Categories} />
+          <Route exact path="/random" component={Random} />
+          <Route exact path="/nonalcohol" component={NonAlcoholic} />
+          <Route exact path="/drink/:id" component={Detail} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 

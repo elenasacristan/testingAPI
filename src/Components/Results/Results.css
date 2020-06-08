@@ -1,0 +1,8 @@
+
+.Results .results-container {
+    margin: 5%;
+    background-color: white;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
