@@ -6,7 +6,7 @@ export default function Categories() {
   const [ingredient, setIngredient] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const handleSubmit = (event) => setIngredient(event.target.value);
+  // const handleSubmit = (event) => setIngredient(event.target.value);
 
   useEffect(() => {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
