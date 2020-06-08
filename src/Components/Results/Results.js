@@ -10,7 +10,6 @@ export default function Results({ingredient}) {
 
   useEffect(() => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
-
       .then((response) => response.json())
       .then((json) => {
         serDrinks(json.drinks);

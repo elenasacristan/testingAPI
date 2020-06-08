@@ -6,8 +6,6 @@ export default function Categories() {
   const [ingredient, setIngredient] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // const handleSubmit = (event) => setIngredient(event.target.value);
-
   useEffect(() => {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
       .then((response) => response.json())
@@ -25,7 +23,6 @@ export default function Categories() {
       <div className="Ingredients">
         
         <p>Select and ingredient from the drop down menu</p>
-        {/* <form onSubmit={handleSubmit}> */}
         <form>
           <select
             onChange={(e) => setIngredient(e.target.value)}
@@ -35,7 +32,6 @@ export default function Categories() {
               <option key={drink.strIngredient1}>{drink.strIngredient1}</option>
             ))}
           </select>
-          {/* <button>Find me drinks</button> */}
         </form>
         <Results ingredient={ingredient} />
       </div>
